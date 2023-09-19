@@ -16,6 +16,9 @@ public class Interactor : MonoBehaviour
     private readonly Collider[] _colliders = new Collider[3];
     [SerializeField] private int _colliderCount;
 
+    public bool isTasking = false;
+
+
     private void Update()
     {
         _colliderCount = Physics.OverlapSphereNonAlloc(_interactPoint.position, _interactRadius, _colliders, _interactableLayer);
@@ -27,6 +30,18 @@ public class Interactor : MonoBehaviour
         else
         {
             interactBtn.color = Color.grey;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && _colliderCount > 0)
+        {
+            _colliders[0].GetComponent<Task_initiator>().StartTask();
+            isTasking = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && _colliderCount > 0)
+        {
+            _colliders[0].GetComponent<Task_initiator>().EndTask();
+            isTasking = false;
         }
     }
 
