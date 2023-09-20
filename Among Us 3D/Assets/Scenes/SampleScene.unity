@@ -241,6 +241,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Switch
       objectReference: {fileID: 0}
+    - target: {fileID: 7024905316108102169, guid: 001bb109f7100834fbe7c382ffd589be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7847180870081067701, guid: 001bb109f7100834fbe7c382ffd589be, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -787,6 +791,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Switch
       objectReference: {fileID: 0}
+    - target: {fileID: 7024905316108102169, guid: 001bb109f7100834fbe7c382ffd589be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7847180870081067701, guid: 001bb109f7100834fbe7c382ffd589be, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1006,6 +1014,7 @@ GameObject:
   - component: {fileID: 943754052}
   - component: {fileID: 943754054}
   - component: {fileID: 943754053}
+  - component: {fileID: 943754055}
   m_Layer: 5
   m_Name: fixing lights
   m_TagString: Untagged
@@ -1076,6 +1085,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943754051}
   m_CullTransparentMesh: 1
+--- !u!114 &943754055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943754051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ae0820ba980414fba352061d2c64ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchCount: 5
+  taskDone: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,7 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd385653c8c2cff4b9724cf7ce25706d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 400
+  mouseSensitivity: 100
   player: {fileID: 2049174}
 --- !u!1 &1124341090
 GameObject:
@@ -1304,6 +1327,7 @@ MonoBehaviour:
   taskUI: {fileID: 943754051}
   fx_light: 1
   fx_wiring: 0
+  isTasking: 0
 --- !u!1 &1249805275
 GameObject:
   m_ObjectHideFlags: 0

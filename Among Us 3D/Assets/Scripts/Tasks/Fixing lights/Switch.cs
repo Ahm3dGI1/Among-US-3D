@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class Switch : MonoBehaviour
+public class Switch : MonoBehaviour, IPointerClickHandler
 {
     public GameObject up;
     public GameObject on;
@@ -13,13 +15,27 @@ public class Switch : MonoBehaviour
     {
         on.SetActive(isOn);
         up.SetActive(isUp);
+
+        if (isOn)
+        {
+            Main.instance.SwithchChange(1);
+        }
     }
 
-    private void OnMouseUp()
+    public void OnPointerClick(PointerEventData eventData)
     {
         isOn = !isOn;
         isUp = !isUp;
         on.SetActive(isOn);
         up.SetActive(isUp);
+
+        if (isOn)
+        {
+            Main.instance.SwithchChange(1);
+        }
+        else
+        {
+            Main.instance.SwithchChange(-1);
+        }
     }
 }

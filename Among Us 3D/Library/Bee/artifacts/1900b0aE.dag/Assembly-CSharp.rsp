@@ -357,6 +357,7 @@
 "Assets/Scripts/Player/Interactor.cs"
 "Assets/Scripts/Player/mouse_look.cs"
 "Assets/Scripts/Player/Player Movement.cs"
+"Assets/Scripts/Tasks/Fixing lights/Main.cs"
 "Assets/Scripts/Tasks/Fixing lights/Switch.cs"
 -langversion:9.0
 

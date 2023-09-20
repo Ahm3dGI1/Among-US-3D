@@ -26,6 +26,7 @@ public class Interactor : MonoBehaviour
         if (_colliderCount > 0)
         {
             interactBtn.color = Color.white;
+            isTasking = _colliders[0].GetComponent<Task_initiator>().isTasking;
         }
         else
         {
@@ -35,13 +36,11 @@ public class Interactor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && _colliderCount > 0)
         {
             _colliders[0].GetComponent<Task_initiator>().StartTask();
-            isTasking = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && _colliderCount > 0)
         {
             _colliders[0].GetComponent<Task_initiator>().EndTask();
-            isTasking = false;
         }
     }
 

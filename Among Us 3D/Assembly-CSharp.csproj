@@ -42,6 +42,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Player\mouse_look.cs" />
      <Compile Include="Assets\Scripts\Player\Player Movement.cs" />
+     <Compile Include="Assets\Scripts\Tasks\Fixing lights\Main.cs" />
      <Compile Include="Assets\Scripts\Player\Interactor.cs" />
      <Compile Include="Assets\Scripts\Interaction system\Task_initiator.cs" />
      <Compile Include="Assets\Scripts\Tasks\Fixing lights\Switch.cs" />
