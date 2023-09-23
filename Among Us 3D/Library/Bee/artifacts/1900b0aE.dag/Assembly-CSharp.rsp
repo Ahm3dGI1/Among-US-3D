@@ -359,6 +359,7 @@
 "Assets/Scripts/Player/Player Movement.cs"
 "Assets/Scripts/Tasks/Fixing lights/Main.cs"
 "Assets/Scripts/Tasks/Fixing lights/Switch.cs"
+"Assets/Scripts/Tasks/Fixing Wires/Wire.cs"
 -langversion:9.0
 
 /deterministic
