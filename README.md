@@ -16,5 +16,9 @@ Here's a list of the technical aspects and contributions to the project:
 - **Project Management:** Organized and managed the development process, tracking progress and milestones.
 - **Continuous Learning:** Demonstrated a commitment to learning and skill development throughout the project.
 
+![Blender 7_18_2023 11_27_40 PM](https://github.com/Ahm3dGI1/Among-US-3D/assets/85696822/7509ecd1-cdb8-43ae-bc5a-0ff436bfd424)
+![Blender_  D__Projects_Among Us_Map blend  7_29_2023 10_31_47 PM](https://github.com/Ahm3dGI1/Among-US-3D/assets/85696822/e3af39e7-83b0-4462-a016-11129cb34845)
+
+
 ## Installation
 Coming Soon
