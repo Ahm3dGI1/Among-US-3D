@@ -1,55 +1,58 @@
-using System.Collections;
-using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Wire : MonoBehaviour
+public class Wire : MonoBehaviour, IDragHandler, IEndDragHandler
 {
-    public RectTransform wireEnd;
-    public float wireLength = 0.0f;
+    [SerializeField] private RectTransform wireEnd;
     [SerializeField] private Canvas canvas;
 
-    Vector2 startPoint;
-    Vector2 startPosition;
+    private Vector2 startPoint;
+    private Vector2 startPosition;
+    private Vector2 offset;
 
     private void Start()
     {
         startPoint = transform.parent.position;
+        offset = new Vector2(-173f, 80f);
         startPosition = transform.position;
     }
 
-    public void DragHandler(BaseEventData data)
+    public void OnDrag(PointerEventData eventData)
     {
-        PointerEventData pointerData = (PointerEventData)data;
-
         Vector2 position;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             (RectTransform)canvas.transform,
-            pointerData.position,
+            eventData.position,
             canvas.worldCamera,
             out position);
 
-        UpdateWire(position);
+        UpdateWirePosition(position);
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, .2f);
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject != gameObject)
+            {
+                UpdateWirePosition(collider.transform.position);
+            }
+        }
     }
 
-    public void EndDragHandler(BaseEventData data)
+    public void OnEndDrag(PointerEventData eventData)
     {
-        PointerEventData pointerData = (PointerEventData)data;
-
-        UpdateWire(startPosition);
+        startPosition = transform.position + (Vector3)wireEnd.anchoredPosition;
+        UpdateWirePosition(startPosition - offset);
     }
 
-    void UpdateWire(Vector2 position)
+    private void UpdateWirePosition(Vector2 position)
     {
         transform.position = canvas.transform.TransformPoint(position);
 
-        //update direction
-        Vector2 direction = (Vector2)transform.position - startPoint;
+        Vector2 direction = (Vector2)wireEnd.position - startPoint;
         transform.right = direction * transform.lossyScale.x;
 
-        //update length
-        float length = Vector2.Distance(startPoint, transform.position);
+        float length = Vector2.Distance(startPosition, transform.position);
         wireEnd.sizeDelta = new Vector2(length, wireEnd.sizeDelta.y);
     }
 }
